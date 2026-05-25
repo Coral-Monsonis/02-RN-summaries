@@ -10,19 +10,16 @@ const Stack = createNativeStackNavigator()
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <Stack.Screen
-          name="Audio"
-          children={() => (
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+
+        <Stack.Screen name="Audio">
+          {() => (
             <MasterLayout>
               <AudioScreen />
             </MasterLayout>
           )}
-        />
+        </Stack.Screen>
+
       </Stack.Navigator>
     </NavigationContainer>
   )

@@ -1,11 +1,12 @@
 // src/screens/ProcessingScreen/ProcessingScreen.tsx
-import { View, Text } from "react-native"
-import { MasterLayout } from "../../layout/MasterLayout"
+import { View, Text, ActivityIndicator } from "react-native"
+import { styles } from "./ProcessingScreen.styles"
 
-export default function ProcessingScreen() {
+export function ProcessingScreen() {
     return (
-        <MasterLayout>
-            <Text>Procesando...</Text>
-        </MasterLayout>
+        <View style={styles.container}>
+            <ActivityIndicator size="large" color="#333" />
+            <Text style={styles.text}>Procesando audio...</Text>
+        </View>
     )
 }

@@ -5,7 +5,9 @@ import { validateAudio } from "../../logic/audio/validateAudio"
 import { styles } from "./AudioScreen.styles"
 import type { AudioScreenProps } from "./AudioScreen.types"
 
-export const AudioScreen = ({ handleValidAudio }: AudioScreenProps) => {
+export const AudioScreen = (props: Partial<AudioScreenProps>) => {
+    const { handleValidAudio } = props
+
     const [error, setError] = useState<string | null>(null)
     const [filename, setFilename] = useState<string | null>(null)
 
@@ -39,7 +41,8 @@ export const AudioScreen = ({ handleValidAudio }: AudioScreenProps) => {
 
         setFilename(file.name ?? "audio")
 
-        handleValidAudio({
+        // Solo llamamos si existe (por si acaso)
+        handleValidAudio?.({
             uri: file.uri,
             name: file.name ?? "audio",
             size: file.size ?? 0,
